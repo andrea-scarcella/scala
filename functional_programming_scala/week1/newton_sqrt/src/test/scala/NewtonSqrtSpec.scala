@@ -10,25 +10,25 @@ class NewtonSqrtSpec extends FlatSpec {
 	
     val result = sqrtop.sqrt(x)
     
-    assert(abs(result - 1.4142)<0.0001)
+    assert(abs(1 - 1.4142/result)<0.0001)
     
   }
 
   it should "approximate large inputs" in {
    val sqrtop = new NewtonSqrt
-	val x = 1e6
-	
+	val x = 1e20
+	val expected =1e10
     val result = sqrtop.sqrt(x)
     
-    assert(abs(result-1000)<0.0001)//tests termination
+    assert(abs(1-expected/result)<0.0001)//tests termination
   }
   
   it should "approximate small inputs" in {
    val sqrtop = new NewtonSqrt
-	val x = 1e-6
-	val expected =1e-3
+	val x = 1e-20
+	val expected =1e-10
     val result = sqrtop.sqrt(x)
     
-    assert(abs(result-expected)<0.0001)//tests termination
+    assert(abs(1-expected/result)<0.0001)//tests termination
   }
 }
