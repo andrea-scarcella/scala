@@ -30,6 +30,36 @@ it should " evaluate to a if a=b and f:Id" in {
    
     assert(result===a)
   }
+  
+  "Factorial in terms of product " should " evaluate to b! if a=1, b>0 and f:Id" in {
+ val cur = new Currying
+		val a=1
+		val b=5
+    val result = cur.product((n:Int) => n)(a,b)
+   val expected=cur.factorial(b)
+    assert(result===expected)
+  }
+  
+   "Generalized product " should " evaluate to same value of product" in {
+ val cur = new Currying
+		val a=1
+		val b=5
+    val result = cur.product((n:Int) => n)(a,b)
+	val expected=cur.gp((n:Int) => n)(a,b)
+    assert(result===expected)
+  }
+  
+  
+  
+  
+   "Generalized sum " should " evaluate to same value of sum" in {
+ val cur = new Currying
+		val a=1
+		val b=5
+    val result = cur.sum((n:Int) => n)(a,b)
+	val expected=cur.gs((n:Int) => n)(a,b)
+    assert(result===expected)
+  }
   it should " fail a failing test " in {
     assert(false)
   }
