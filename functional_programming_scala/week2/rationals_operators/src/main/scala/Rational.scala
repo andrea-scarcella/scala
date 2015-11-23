@@ -1,12 +1,13 @@
 package fpscala.week2
 import math.abs
 class Rational(x:Int,y:Int)  {
+	private val g=gcd(x,y)
 	val numer=x/g
 	val denom=y/g
 	def gcd(a:Int,b:Int):Int={
 		if (b==0) a else gcd(b,a%b)
 	}
-	private val g=gcd(x,y)
+	
 	
 	def unary_- =new Rational(-numer,denom)
 	def +(other:Rational)={
