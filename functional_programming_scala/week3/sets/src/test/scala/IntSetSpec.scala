@@ -61,7 +61,15 @@ class RationalSpec extends FlatSpec {
 	assert(result.indexOf("4") !== -1)
 
   }
-  
+   it should " evaluate to a string that satisfies tree invariants" in {
+     val x= Empty.incl(10).incl(20).incl(30)
+	val y= Empty.incl(4).incl(20)
+	val result=x.union(y).toString()
+	
+	assert(result===".")
+	
+
+  }
    it should " fail a failing test " in {
     assert(false)
   }
