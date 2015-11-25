@@ -23,3 +23,10 @@ def length:Int = 0
 def nth(n:Int):Nothing =  throw new IndexOutOfBoundsException("nth") 
 
 }
+
+object List{
+def apply [T]()= new Nil[T]
+def apply[T](n:T)=new Cons[T](n,new Nil[T])
+def apply[T](n:T,m:T)=new Cons[T](n,new Cons[T](m,new Nil[T]))
+}
+

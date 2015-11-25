@@ -1,7 +1,7 @@
 import fpscala.week4._
 import org.scalatest._
 import scala.math._
-import scala._
+import Matchers._
 class ListSpec extends FlatSpec {
 
   "The n-th element of an empty list " should " throw an IndexOutOfBondsException" in {
@@ -42,5 +42,24 @@ class ListSpec extends FlatSpec {
 	val firstElement=list.nth(0)
 	assert(secondElement  === 10)//not changed
 	assert(firstElement  === 0)//not changed
+   }
+   "A List Object" should " return an empty list when invoked with no parameters" in {
+	val nil=List()
+	
+	nil shouldBe a [Nil[_]]// use _ because of type erasure
+   }
+   it should " return a list of length 1 containing n when invoked with n as a parameter" in{
+   val list=List(10)
+	
+	list shouldBe a [Cons[_]]// use _ because of type erasure
+	list.head shouldBe 10
+   }
+   
+   it should " return a list of length 2 containing n,m when invoked with n,m as parameters" in{
+   val list=List(10,11)
+	
+	list shouldBe a [Cons[_]]// use _ because of type erasure
+	list.head shouldBe 10
+	list.tail.head shouldBe 11
    }
    }
