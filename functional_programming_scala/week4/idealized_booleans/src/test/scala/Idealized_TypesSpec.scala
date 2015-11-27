@@ -55,7 +55,7 @@ class Idealized_TypesSpec extends FlatSpec {
 	"NonZero (Zero.successor) + Zero " should " equal NonZero" in {
 		val nz=Zero.successor
 		val result=nz + Zero
-		assert(result === nz)
+		assert(result.predecessor === nz.predecessor)
 	}
 	"NonZero - NonZero " should " equal Zero" in {
 		assert((Zero.successor - Zero.successor) ===Zero)

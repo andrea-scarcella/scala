@@ -32,12 +32,6 @@ class NonZero(pred:Nat) extends Nat{
 	def isZero: Boolean=False
 	def predecessor: Nat=pred
 	def successor: Nat=new NonZero(this)
-	def + (that: Nat): Nat={
-		def sum(lhs:Nat,rhs:Nat): Nat ={if (rhs == Zero) lhs else sum(lhs.successor,rhs.predecessor) }
-		sum(this,that)
-	}
-	def - (that: Nat): Nat={
-		def sub(lhs:Nat,rhs:Nat): Nat ={if (rhs == Zero) lhs else sub(lhs.predecessor,rhs.predecessor) }
-		sub(this,that)
-	}
+	def + (that: Nat): Nat= new NonZero(pred + that)
+	def - (that: Nat): Nat=if (that.isZero==True)this else pred - that.predecessor
 }
