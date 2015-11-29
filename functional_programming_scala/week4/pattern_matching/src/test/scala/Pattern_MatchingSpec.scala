@@ -18,4 +18,8 @@ class Pattern_MatchingSpec extends FlatSpec {
 		val result=Util.show(Prod(Number(4),Number(5)))
 		assert(result === "4 * 5")
 	}
+	"show(Sum(Prod(Number(4),Number(5)),Sum(Number(4),Number(5)))) " should " return \"4 * 5 + 4 + 5\" " in {
+		val result=Util.show(Sum(Prod(Number(4),Number(5)),Sum(Number(4),Number(5))))
+		assert(result === "4 * 5 + 4 + 5")
+	}
 }
