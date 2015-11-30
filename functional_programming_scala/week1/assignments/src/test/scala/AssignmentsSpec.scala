@@ -43,8 +43,8 @@ class AssignmentsSpec extends FlatSpec {
     val result=Assignments.balance(":-)".toList)
 	assert(result===false)
   }
-   it should " return false when applied to an unbalanced list such as ':-)' " in {
-    val result=Assignments.balance(":-)".toList)
+   it should " return false when applied to an unbalanced list such as '((:-)' " in {
+    val result=Assignments.balance("((:-)".toList)
 	assert(result===false)
   }
   

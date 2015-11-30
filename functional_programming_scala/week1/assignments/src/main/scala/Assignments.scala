@@ -12,14 +12,16 @@ def balance(chars: List[Char]): Boolean={
 	
 	val push='('
 	val pop=')'
-	def cp(top:Int, xs: List[Char]):Boolean ={
-		if ( xs.isEmpty) top == 0
+	def cp(stackSize:Int, xs: List[Char]):Boolean ={
+		if ( xs.isEmpty) stackSize == 0//no open round brackets left on stack
 		else 
-		if(xs.head == pop) cp(top-1,xs.tail)
+		if (stackSize < 0) false // too many closed brackets
 		else
-		if(xs.head == push && top >=0 )cp(top+1,xs.tail) 
+		if(xs.head == pop)  cp(stackSize-1,xs.tail) //closed bracket, pop an open bracket
+		else
+		if(xs.head == push) cp(stackSize+1,xs.tail) //open bracket, push on stack
 		else		
-		cp(top,xs.tail)		
+		cp(stackSize,xs.tail) //other character, stack size not modified
 	}
 	cp(0,chars)
 }
