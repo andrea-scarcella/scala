@@ -31,8 +31,21 @@ class AssignmentsSpec extends FlatSpec {
 	"pascal(2,4)"should " return 6 " in {
 		assert(Assignments.pascal(2,4)===6)
 	}
-  it should " fail a failing test " in {
-    assert(false)
+  "balance " should " return true when applied to empty list " in {
+    val result=Assignments.balance(List())
+	assert(result===true)
+  }
+  it should " return false when applied to an unbalanced list such as '())(' " in {
+    val result=Assignments.balance("())(".toList)
+	assert(result===false)
+  }
+   it should " return false when applied to an unbalanced list such as ':-)' " in {
+    val result=Assignments.balance(":-)".toList)
+	assert(result===false)
+  }
+   it should " return false when applied to an unbalanced list such as ':-)' " in {
+    val result=Assignments.balance(":-)".toList)
+	assert(result===false)
   }
   
 }
