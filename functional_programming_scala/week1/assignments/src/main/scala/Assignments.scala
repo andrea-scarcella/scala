@@ -25,13 +25,4 @@ def balance(chars: List[Char]): Boolean={
 	}
 	cp(0,chars)
 }
-def countChange(money: Int, coins: List[Int]):Int={
-	if(coins.isEmpty || money < 0) 0 else
-	if(coins.tail.isEmpty){
-		if(money % coins.head ==0 && money >0) 1 else 0
-	}
-	else{
-		countChange(money,coins.tail) + {if(money-coins.head==0) 1 else countChange(money - coins.head,coins)}
-	}
-}
 }

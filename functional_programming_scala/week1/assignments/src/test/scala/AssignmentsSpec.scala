@@ -47,40 +47,5 @@ class AssignmentsSpec extends FlatSpec {
     val result=Assignments.balance("((:-)".toList)
 	assert(result===false)
   }
-   "countChange " should " return 3 when applied to 4,[1,2]" in {
-    val money=4
-	val denoms=List(1,2)
-    val result=Assignments.countChange(money,denoms)
-	assert(result===3)
-  }
-  it should " return 0 when applied to 3,[4]" in {
-    val money=3
-	val denoms=List(4)
-    val result=Assignments.countChange(money,denoms)
-	assert(result===0)
-  }
-   it should " return 0 when applied to 3,[]" in {
-    val money=3
-	val denoms=List()
-    val result=Assignments.countChange(money,denoms)
-	assert(result===0)
-  }
-   it should " return 5 when applied to 4,[1,2,3,4]" in {
-    val money=4
-	val denoms=List(1,2,3,4)
-    val result=Assignments.countChange(money,denoms)
-	assert(result===5)
-  }
-   it should " return 0 when applied to 0,[1,2,3,4]" in {
-    val money=0
-	val denoms=List(1,2,3,4)
-    val result=Assignments.countChange(money,denoms)
-	assert(result===0)
-  }
-   it should " return 1 when applied to 1,[1,2,3,4]" in {
-    val money=1
-	val denoms=List(1,2,3,4)
-    val result=Assignments.countChange(money,denoms)
-	assert(result===1)
-  }
+  
 }
