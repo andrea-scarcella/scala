@@ -71,11 +71,11 @@ class AssignmentsSpec extends FlatSpec {
     val result=Assignments.countChange(money,denoms)
 	assert(result===5)
   }
-   it should " return 0 when applied to 0,[1,2,3,4]" in {
+   it should " return 1 when applied to 0,[1,2,3,4]" in {
     val money=0
 	val denoms=List(1,2,3,4)
     val result=Assignments.countChange(money,denoms)
-	assert(result===0)
+	assert(result===1)
   }
    it should " return 1 when applied to 1,[1,2,3,4]" in {
     val money=1

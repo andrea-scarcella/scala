@@ -28,10 +28,10 @@ def balance(chars: List[Char]): Boolean={
 def countChange(money: Int, coins: List[Int]):Int={
 	if(coins.isEmpty || money < 0) 0 else
 	if(coins.tail.isEmpty){
-		if(money % coins.head ==0 && money >0) 1 else 0
+		if(money % coins.head == 0) 1 else 0// giving zero change is also one way of giving change!
 	}
 	else{
-		countChange(money,coins.tail) + {if(money-coins.head==0) 1 else countChange(money - coins.head,coins)}
+		countChange(money,coins.tail) + countChange(money - coins.head,coins)
 	}
 }
 }
