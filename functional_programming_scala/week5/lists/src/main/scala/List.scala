@@ -13,7 +13,7 @@ def concat[T](xs: List[T], ys: List[T]): List[T] = xs match{
 	case List() => ys
 	case z :: zs => z :: concat(zs,ys)
 }
-//to be tested
+
 def reverse[T](xs: List[T]): List[T] = xs match {
 	case List() => xs
 	case y :: ys => reverse(ys) ++ List(y)
@@ -28,7 +28,13 @@ def removeAt[T](n: Int, xs:List[T]): List[T]= xs match {
 		}
 	}
 }
-
-
-
+def flatten(xs: List[Any]):List[Any]={
+	def flatten_el(z:Any):List[Any] = z match {
+		case List()=> List()
+		case r:List[Any] => flatten_el(r.head) ++ flatten_el(r.tail) // ++ concatenates lists
+		case k:Any => List(k) 
+	}
+	flatten_el(xs)
+	
+	}
 }

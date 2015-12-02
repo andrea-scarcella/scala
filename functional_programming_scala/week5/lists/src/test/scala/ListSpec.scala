@@ -67,4 +67,11 @@ class ListSpec extends FlatSpec {
 		
 		assert(result===expected)
 	}
+	"flatten " should "return List(1, 1, 2, 3, 5, 8) when applied to List(List(1, 1), 2, List(3, List(5, 8))) " in{
+		val list=List(List(1, 1), 2, List(3, List(5, 8)))
+		val expected=List(1, 1, 2, 3, 5, 8)
+		val result=Util.flatten(list)
+		
+		assert(result===expected)
+	}
    }
