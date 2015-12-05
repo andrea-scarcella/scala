@@ -4,7 +4,7 @@ import scala.math._
 
 object Util {
 	def merge(xs: List[Int],ys: List[Int]): List[Int] = (xs,ys) match {
-		case (List(),List()) => List()
+		case (Nil,List()) => List()
 		case (x1::xs1,List()) => xs
 		case (List(),y1::ys1) => ys
 		case (x1::xs1,y1::ys1) => {
