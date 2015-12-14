@@ -4,18 +4,10 @@ import scala.math._
 
 object Util {
 	def isSafe(col: Int, queens: List[Int]): Boolean= {
-	(queens.filter( k=> k  == col).length == 0 ) &&
-	(for {
-		qrow <- 0 until queens.length //current queen row
-		q <- qrow + 1 to queens.length //rows from next to last
-		if(
-		q == queens.length && (
-			queens(qrow)+ (q - qrow) == col 
-			||
-			queens(qrow) - (q - qrow) == col 
-			)
-		)
-	}yield (false)).foldLeft(true)((a,b)=>(a && b))
-	
+		val row=queens.length
+		val queensWithRows= (row - 1 to 0 by -1) zip queens
+		//choosen (row,colum) different from any previous columns 
+		//and not in check with any previous queen (i.e. not lying on same diagonal, i.e. dx!=dy)
+		queensWithRows forall{ case (r,c) => c != col && math.abs(col-c)!= row -r}
 	}
 }
