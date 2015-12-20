@@ -206,4 +206,22 @@ test("Exists returns true iff at least one element of singletonSet(bond)  satisf
 		  assert(r, "sub exists 1000")		  
 		}
   }
+  
+test("Map(s,f) where s={e1,..en} returns a set f(s)={f(e1),..,f(en)}"){
+	  new TestSets {
+		  val s= union(s1,s2)
+		  val fs = map(s, x=> 2*x)
+		  assert(contains(fs,2), "map f(s1)")
+		  assert(contains(fs,4), "map f(s1)")
+		  assert(!contains(fs,1), "map f(s1)")
+		}
+  }
+test("Map(s,f) where s=empty returns the empty set"){
+	  new TestSets {
+		  val s= (x: Int) => false
+		  val fs = map(s, x=> 2*x)
+		  assert(forall(fs,x=>false), "map f(empty)")
+
+		}
+  }
 }
