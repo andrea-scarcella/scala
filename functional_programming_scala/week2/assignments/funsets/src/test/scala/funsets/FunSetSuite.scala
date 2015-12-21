@@ -220,7 +220,7 @@ test("Map(s,f) where s=empty returns the empty set"){
 	  new TestSets {
 		  val s= (x: Int) => false
 		  val fs = map(s, x=> 2*x)
-		  assert(forall(fs,x=>false), "map f(empty)")
+		  assert(forall(fs,x=>false), "map  f(empty)")
 
 		}
   }
